@@ -9,9 +9,12 @@ import sys
 from Adafruit_IO import MQTTClient
 import random
 import time
+import sys
+import cv2
+import aiot
 from uart import *
 
-AIO_FEED_ID = ["bbc-temp"]
+AIO_FEED_ID = ["BBC-TEMP", "BBC-LED", "AI"]
 AIO_USERNAME = "haiphamcse"
 AIO_KEY = "aio_Iktq909kNHktdKuYpY4MBfSEr0RM"
 
@@ -30,26 +33,20 @@ def disconnected(client):
 def message(client , feed_id , payload):
     print("Data is from: " + feed_id + ", Payload: " + payload)
 
-client = MQTTClient(AIO_USERNAME , AIO_KEY)
-client.on_connect = connected
-client.on_disconnect = disconnected
-client.on_message = message
-client.on_subscribe = subscribe
-client.connect()
-client.loop_background()
-# counter_sensor = 30
-while True:
-    time.sleep(1)
-    #
-    # counter_sensor = counter_sensor - 1
-    # if counter_sensor <= 0:
-    #     counter_sensor = 30
-    #     temp = random.randint(20,40)
-    #     client.publish("sensor1", temp)
-    #     humi = random.randint(0, 100)
-    #     client.publish("sensor2", humi)
-    #     lux = random.randint(0, 400)
-    #     client.publish("sensor3", lux)
 
-    readSerial()
-    pass
+
+if __name__ == '__main__':
+
+    client = MQTTClient(AIO_USERNAME , AIO_KEY)
+    client.on_connect = connected
+    client.on_disconnect = disconnected
+    client.on_message = message
+    client.on_subscribe = subscribe
+    client.connect()
+    client.loop_background()
+
+    while True:
+        readSerial(client)
+        time.sleep(1)
+        pass
+
