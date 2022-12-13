@@ -1,6 +1,11 @@
-print("Hello Sensors")
 import serial.tools.list_ports
 import time
+
+def initSerial():
+    portName = getPort()
+    if portName != "None":
+        ser = serial.Serial(port=portName, baudrate=9600)
+    return ser
 
 def getPort():
     ports = serial.tools.list_ports.comports()
@@ -12,19 +17,24 @@ def getPort():
         if "T" in strPort:
             splitPort = strPort.split(" ")
             commPort = (splitPort[0])
-    return "COM7"
+    return "COM15"
 
-mess = "A"
+mess = ""
 
 def processData(client, data):
-    data = data.replace("!", "")
-    data = data.replace("#", "")
-    splitData = data.split(":")
-    print(splitData)
-    if splitData[1] == "T":
-        client.publish("AI", splitData[2])
+    #PROCESS DATA AND ACTIVATE 1 HOP
+    if("!END#" in data):
+        print("Timed out, shutting down UART") #IF AFTER 5s STM32 doesn't get !OK# 
+    elif("!ADC0" in data): #SEND ADC DATA
+        data = data.replace("!ADC=", "")
+        data = data.replace("#", "")
+        client.publish("ADC0", data) #ADD ADC1
+    
 
-def readSerial(client):
+def writeSerial(ser, data):
+    ser.write(str(data).encode('utf-8'))
+
+def readSerial(ser, client):
     bytesToRead = ser.inWaiting()
     if (bytesToRead > 0):
         global mess
@@ -37,16 +47,4 @@ def readSerial(client):
                 mess = ""
             else:
                 mess = mess[end+1:]
-    print(mess)
-    
-portName = getPort()
-
-if portName != "None":
-    ser = serial.Serial(port=portName, baudrate=115200)
-    print(ser)
-
-
-# while True:
-#     readSerial()
-#     print(mess)
-#     time.sleep(1)
+    return mess
