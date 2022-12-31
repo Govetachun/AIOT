@@ -25,6 +25,42 @@
             android:gravity="center"
             android:textColor="#ff0000"
             android:textSize="30dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/txtConnection"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#ff0000"
+                android:text="Check Connection"
+                android:textSize="30dp"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:layout_margin="20dp"/>
+<!--            <TextView-->
+<!--                android:id="@+id/txtLed"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="#0000ff"-->
+<!--                android:text="70%"-->
+<!--                android:textSize="50dp"-->
+<!--                android:textColor="#ffffff"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_margin="20dp"/>-->
+        </LinearLayout>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,43 +77,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#ff0000"
-                android:text="28*c"
-                android:textSize="50dp"
-                android:textColor="#ffffff"
-                android:gravity="center"
-                android:layout_margin="20dp"/>
-            <TextView
-                android:id="@+id/txtLed"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:background="#0000ff"
-                android:text="70%"
-                android:textSize="50dp"
-                android:textColor="#ffffff"
-                android:gravity="center"
-                android:layout_margin="20dp"/>
-        </LinearLayout>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="40"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/txtTemperature"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#00ff00"
-                android:text="28*c"
+                android:text="ADC 0"
                 android:textSize="50dp"
                 android:textColor="#ffffff"
                 android:gravity="center"
@@ -87,8 +88,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#000000"
-                android:text="70%"
+                android:background="#00ff00"
+                android:text="ADC 1"
                 android:textSize="50dp"
                 android:textColor="#ffffff"
                 android:gravity="center"
@@ -120,6 +121,11 @@
         </LinearLayout>
 
     </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="20"-->
+<!--        android:orientation="horizontal">-->
     <com.github.angads25.toggle.widget.LabeledSwitch
         android:id="@+id/btnLED"
         android:layout_width="match_parent"
@@ -130,8 +136,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:textSize="30dp"
-        app:textOn = "Bật đèn"
-        app:textOff = "Tắt đèn"
+        app:textOn = "Bật ADC 0"
+        app:textOff = "Tắt ADC 0"
         app:on="false"
         app:colorBorder="@color/colorAccent"/>
     <com.github.angads25.toggle.widget.LabeledSwitch
@@ -144,10 +150,34 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:textSize="30dp"
-        app:textOn = "Bật máy bơm"
-        app:textOff = "Tắt máy bơm"
+        app:textOn = "Bật ADC 1"
+        app:textOff = "Tắt ADC 1"
         app:on="false"
         app:colorBorder="#ffff00"/>
+<!--    </LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/txtTime"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00f0f0"
+                android:text="Timing"
+                android:textSize="30dp"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:layout_margin="20dp"/>
+        </LinearLayout>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -6,7 +6,9 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
         maven {
             url "https://repo.eclipse.org/content/repositories/paho-snapshots/"
+
         }
+//        maven { url 'https://jitpack.io' }
     }
 }
 rootProject.name = "lab5"
