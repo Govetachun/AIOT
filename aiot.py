@@ -7,10 +7,11 @@ import cv2
 import torch
 
 
+
 def get_webcam_frame(vid):
     ret, frame = vid.read()
     image = cv2.resize(frame, (224, 224), interpolation=cv2.INTER_AREA)
-    image = np.asarray(image, dtype=np.float32).reshape(1, 224, 224, 3)
+    image = np.asarray(image, dtype=np.float64).reshape(1, 224, 224, 3)
     image = image/127.5 - 1
     return image
 
