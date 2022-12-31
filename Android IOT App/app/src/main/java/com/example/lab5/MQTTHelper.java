@@ -3,7 +3,7 @@ package com.example.lab5;
 import android.content.Context;
 import android.os.Build;
 import android.util.Log;
-
+import android.widget.TextView;
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.DisconnectedBufferOptions;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
@@ -14,17 +14,16 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
-
+import android.widget.TextView;
 public class MQTTHelper {
     public MqttAndroidClient mqttAndroidClient;
 
-    public final String[] arrayTopics = {"xuan_bach/feeds/pump","xuan_bach/feeds/led",
-                                         "xuan_bach/feeds/humid","xuan_bach/feeds/temp",
+    public final String[] arrayTopics = {"xuan_bach/feeds/pump","xuan_bach/feeds/humid","xuan_bach/feeds/ack","xuan_bach/feeds/ok",
                                          "xuan_bach/feeds/nutnhan1", "xuan_bach/feeds/nutnhan2","xuan_bach/feeds/aivision"};
 
-    final String clientId = "1234567";
+    final String clientId = "1234";
     final String username = "xuan_bach";
-    final String password = "aio_Gexj60XsQikXDJnnMJaduFhYjyel";
+    final String password = "aio_wejQ496duLYwQl4fNbBMfP6NkZXr";
 
     final String serverUri = "tcp://io.adafruit.com:1883";
 
